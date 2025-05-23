@@ -1,12 +1,18 @@
 // Function to get a property by path (e.g., 'user.name')
 export const getProperty = (obj, path) => {
   const keys = path.split(".");
+  // console.log("keys :", keys);
+  // console.log(keys.length);
   let result = obj;
+  // console.log("result :", result);
   for (const key of keys) {
+    // console.log("key :", key);
     if (result && key in result) {
       result = result[key];
+      // console.log("resultend :", result);
+    } else {
+      return undefined;
     }
-    return undefined;
   }
   return result;
 };
